@@ -1,6 +1,7 @@
 from playwright.sync_api import sync_playwright
 import json, os, urllib.parse, time
 
+DELAY = 2  # seconds
 
 with open("data.json", "r", encoding="utf-8") as f:
     data = json.load(f)
@@ -18,7 +19,7 @@ with sync_playwright() as pw:
     for i in data:
         save_dir = f"{i["book"]}/{i["lang"]}"
         os.makedirs(save_dir, exist_ok=True)
-        for ch in range(1, i["chapter_length"] + 1): 
+        for ch in range(1, i["chapter_length"] + 1):
             url = f"https://www.bible.com/bible/{i["ver"]}/{i["book"]}.{ch}.{i["bible_ver"]}"
 
             filename = f"{i["book"]}.{ch}.{i["bible_ver"]}.{i["lang"]}.html"
@@ -33,7 +34,9 @@ with sync_playwright() as pw:
                     f.write(html)
                 print(f"Saved html to {save_path}")
             except:
-                print("Error saving HTML")
-            time.sleep(2)
+                print(
+                    f"Error saving HTML {i["book"]}.{ch}.{i["bible_ver"]}.{i["lang"]}"
+                )
+            time.sleep(DELAY)
 
     browser.close()
