@@ -1,0 +1,679 @@
+[
+  {
+    "chapter_length": 13,
+    "book": "HEB",
+    "ver": 2195,
+    "bible_ver": "ABTAG01",
+    "lang": "Tagalog"
+  },
+  {
+    "chapter_length": 13,
+    "book": "HEB",
+    "ver": 2187,
+    "bible_ver": "ABCEB",
+    "lang": "Cebuano"
+  },
+  {
+    "chapter_length": 13,
+    "book": "HEB",
+    "ver": 111,
+    "bible_ver": "NIV",
+    "lang": "English"
+  },
+  {
+    "chapter_length": 13,
+    "book": "HEB",
+    "ver": 1637,
+    "bible_ver": "NVI",
+    "lang": "Spanish"
+  },
+  {
+    "chapter_length": 13,
+    "book": "HEB",
+    "ver": 782,
+    "bible_ver": "RIPV",
+    "lang": "Ilokano"
+  },
+  {
+    "chapter_length": 13,
+    "book": "HEB",
+    "ver": 2198,
+    "bible_ver": "MBBSAM",
+    "lang": "Waray"
+  },
+  {
+    "chapter_length": 13,
+    "book": "HEB",
+    "ver": 1129,
+    "bible_ver": "CBKNT",
+    "lang": "Chavacano"
+  },
+  {
+    "chapter_length": 13,
+    "book": "HEB",
+    "ver": 2194,
+    "bible_ver": "MBBPAN83",
+    "lang": "Pangasinan"
+  },
+  {
+    "chapter_length": 13,
+    "book": "HEB",
+    "ver": 1315,
+    "bible_ver": "VTSP",
+    "lang": "Ivatan"
+  },
+  {
+    "chapter_length": 13,
+    "book": "HEB",
+    "ver": 2364,
+    "bible_ver": "SNT",
+    "lang": "Yami"
+  },
+  {
+    "chapter_length": 13,
+    "book": "HEB",
+    "ver": 1141,
+    "bible_ver": "PMPV",
+    "lang": "Kapampangan"
+  },
+  {
+    "chapter_length": 13,
+    "book": "HEB",
+    "ver": 890,
+    "bible_ver": "MBBBIK92",
+    "lang": "Bikolano"
+  },
+  {
+    "chapter_length": 13,
+    "book": "HEB",
+    "ver": 2191,
+    "bible_ver": "ABHIL82",
+    "lang": "Ilonggo"
+  },
+  {
+    "chapter_length": 13,
+    "book": "HEB",
+    "ver": 1319,
+    "bible_ver": "TSG",
+    "lang": "Tausug"
+  },
+  {
+    "chapter_length": 13,
+    "book": "HEB",
+    "ver": 1246,
+    "bible_ver": "MSK",
+    "lang": "Mansaka"
+  },
+  {
+    "chapter_length": 13,
+    "book": "HEB",
+    "ver": 2244,
+    "bible_ver": "BKR",
+    "lang": "Romblomanon"
+  },
+
+  {
+    "chapter_length": 6,
+    "book": "1TI",
+    "ver": 2195,
+    "bible_ver": "ABTAG01",
+    "lang": "Tagalog"
+  },
+  {
+    "chapter_length": 6,
+    "book": "1TI",
+    "ver": 2187,
+    "bible_ver": "ABCEB",
+    "lang": "Cebuano"
+  },
+  {
+    "chapter_length": 6,
+    "book": "1TI",
+    "ver": 111,
+    "bible_ver": "NIV",
+    "lang": "English"
+  },
+  {
+    "chapter_length": 6,
+    "book": "1TI",
+    "ver": 1637,
+    "bible_ver": "NVI",
+    "lang": "Spanish"
+  },
+  {
+    "chapter_length": 6,
+    "book": "1TI",
+    "ver": 782,
+    "bible_ver": "RIPV",
+    "lang": "Ilokano"
+  },
+  {
+    "chapter_length": 6,
+    "book": "1TI",
+    "ver": 2198,
+    "bible_ver": "MBBSAM",
+    "lang": "Waray"
+  },
+  {
+    "chapter_length": 6,
+    "book": "1TI",
+    "ver": 1129,
+    "bible_ver": "CBKNT",
+    "lang": "Chavacano"
+  },
+  {
+    "chapter_length": 6,
+    "book": "1TI",
+    "ver": 2194,
+    "bible_ver": "MBBPAN83",
+    "lang": "Pangasinan"
+  },
+  {
+    "chapter_length": 6,
+    "book": "1TI",
+    "ver": 1315,
+    "bible_ver": "VTSP",
+    "lang": "Ivatan"
+  },
+  {
+    "chapter_length": 6,
+    "book": "1TI",
+    "ver": 2364,
+    "bible_ver": "SNT",
+    "lang": "Yami"
+  },
+  {
+    "chapter_length": 6,
+    "book": "1TI",
+    "ver": 1141,
+    "bible_ver": "PMPV",
+    "lang": "Kapampangan"
+  },
+  {
+    "chapter_length": 6,
+    "book": "1TI",
+    "ver": 890,
+    "bible_ver": "MBBBIK92",
+    "lang": "Bikolano"
+  },
+  {
+    "chapter_length": 6,
+    "book": "1TI",
+    "ver": 2191,
+    "bible_ver": "ABHIL82",
+    "lang": "Ilonggo"
+  },
+  {
+    "chapter_length": 6,
+    "book": "1TI",
+    "ver": 1319,
+    "bible_ver": "TSG",
+    "lang": "Tausug"
+  },
+  {
+    "chapter_length": 6,
+    "book": "1TI",
+    "ver": 1246,
+    "bible_ver": "MSK",
+    "lang": "Mansaka"
+  },
+  {
+    "chapter_length": 6,
+    "book": "1TI",
+    "ver": 2244,
+    "bible_ver": "BKR",
+    "lang": "Romblomanon"
+  },
+
+  {
+    "chapter_length": 4,
+    "book": "2TI",
+    "ver": 2195,
+    "bible_ver": "ABTAG01",
+    "lang": "Tagalog"
+  },
+  {
+    "chapter_length": 4,
+    "book": "2TI",
+    "ver": 2187,
+    "bible_ver": "ABCEB",
+    "lang": "Cebuano"
+  },
+  {
+    "chapter_length": 4,
+    "book": "2TI",
+    "ver": 111,
+    "bible_ver": "NIV",
+    "lang": "English"
+  },
+  {
+    "chapter_length": 4,
+    "book": "2TI",
+    "ver": 1637,
+    "bible_ver": "NVI",
+    "lang": "Spanish"
+  },
+  {
+    "chapter_length": 4,
+    "book": "2TI",
+    "ver": 782,
+    "bible_ver": "RIPV",
+    "lang": "Ilokano"
+  },
+  {
+    "chapter_length": 4,
+    "book": "2TI",
+    "ver": 2198,
+    "bible_ver": "MBBSAM",
+    "lang": "Waray"
+  },
+  {
+    "chapter_length": 4,
+    "book": "2TI",
+    "ver": 1129,
+    "bible_ver": "CBKNT",
+    "lang": "Chavacano"
+  },
+  {
+    "chapter_length": 4,
+    "book": "2TI",
+    "ver": 2194,
+    "bible_ver": "MBBPAN83",
+    "lang": "Pangasinan"
+  },
+  {
+    "chapter_length": 4,
+    "book": "2TI",
+    "ver": 1315,
+    "bible_ver": "VTSP",
+    "lang": "Ivatan"
+  },
+  {
+    "chapter_length": 4,
+    "book": "2TI",
+    "ver": 2364,
+    "bible_ver": "SNT",
+    "lang": "Yami"
+  },
+  {
+    "chapter_length": 4,
+    "book": "2TI",
+    "ver": 1141,
+    "bible_ver": "PMPV",
+    "lang": "Kapampangan"
+  },
+  {
+    "chapter_length": 4,
+    "book": "2TI",
+    "ver": 890,
+    "bible_ver": "MBBBIK92",
+    "lang": "Bikolano"
+  },
+  {
+    "chapter_length": 4,
+    "book": "2TI",
+    "ver": 2191,
+    "bible_ver": "ABHIL82",
+    "lang": "Ilonggo"
+  },
+  {
+    "chapter_length": 4,
+    "book": "2TI",
+    "ver": 1319,
+    "bible_ver": "TSG",
+    "lang": "Tausug"
+  },
+  {
+    "chapter_length": 4,
+    "book": "2TI",
+    "ver": 1246,
+    "bible_ver": "MSK",
+    "lang": "Mansaka"
+  },
+  {
+    "chapter_length": 4,
+    "book": "2TI",
+    "ver": 2244,
+    "bible_ver": "BKR",
+    "lang": "Romblomanon"
+  },
+
+  {
+    "chapter_length": 3,
+    "book": "TIT",
+    "ver": 2195,
+    "bible_ver": "ABTAG01",
+    "lang": "Tagalog"
+  },
+  {
+    "chapter_length": 3,
+    "book": "TIT",
+    "ver": 2187,
+    "bible_ver": "ABCEB",
+    "lang": "Cebuano"
+  },
+  {
+    "chapter_length": 3,
+    "book": "TIT",
+    "ver": 111,
+    "bible_ver": "NIV",
+    "lang": "English"
+  },
+  {
+    "chapter_length": 3,
+    "book": "TIT",
+    "ver": 1637,
+    "bible_ver": "NVI",
+    "lang": "Spanish"
+  },
+  {
+    "chapter_length": 3,
+    "book": "TIT",
+    "ver": 782,
+    "bible_ver": "RIPV",
+    "lang": "Ilokano"
+  },
+  {
+    "chapter_length": 3,
+    "book": "TIT",
+    "ver": 2198,
+    "bible_ver": "MBBSAM",
+    "lang": "Waray"
+  },
+  {
+    "chapter_length": 3,
+    "book": "TIT",
+    "ver": 1129,
+    "bible_ver": "CBKNT",
+    "lang": "Chavacano"
+  },
+  {
+    "chapter_length": 3,
+    "book": "TIT",
+    "ver": 2194,
+    "bible_ver": "MBBPAN83",
+    "lang": "Pangasinan"
+  },
+  {
+    "chapter_length": 3,
+    "book": "TIT",
+    "ver": 1315,
+    "bible_ver": "VTSP",
+    "lang": "Ivatan"
+  },
+  {
+    "chapter_length": 3,
+    "book": "TIT",
+    "ver": 2364,
+    "bible_ver": "SNT",
+    "lang": "Yami"
+  },
+  {
+    "chapter_length": 3,
+    "book": "TIT",
+    "ver": 1141,
+    "bible_ver": "PMPV",
+    "lang": "Kapampangan"
+  },
+  {
+    "chapter_length": 3,
+    "book": "TIT",
+    "ver": 890,
+    "bible_ver": "MBBBIK92",
+    "lang": "Bikolano"
+  },
+  {
+    "chapter_length": 3,
+    "book": "TIT",
+    "ver": 2191,
+    "bible_ver": "ABHIL82",
+    "lang": "Ilonggo"
+  },
+  {
+    "chapter_length": 3,
+    "book": "TIT",
+    "ver": 1319,
+    "bible_ver": "TSG",
+    "lang": "Tausug"
+  },
+  {
+    "chapter_length": 3,
+    "book": "TIT",
+    "ver": 1246,
+    "bible_ver": "MSK",
+    "lang": "Mansaka"
+  },
+  {
+    "chapter_length": 3,
+    "book": "TIT",
+    "ver": 2244,
+    "bible_ver": "BKR",
+    "lang": "Romblomanon"
+  },
+
+  {
+    "chapter_length": 1,
+    "book": "PHM",
+    "ver": 2195,
+    "bible_ver": "ABTAG01",
+    "lang": "Tagalog"
+  },
+  {
+    "chapter_length": 1,
+    "book": "PHM",
+    "ver": 2187,
+    "bible_ver": "ABCEB",
+    "lang": "Cebuano"
+  },
+  {
+    "chapter_length": 1,
+    "book": "PHM",
+    "ver": 111,
+    "bible_ver": "NIV",
+    "lang": "English"
+  },
+  {
+    "chapter_length": 1,
+    "book": "PHM",
+    "ver": 1637,
+    "bible_ver": "NVI",
+    "lang": "Spanish"
+  },
+  {
+    "chapter_length": 1,
+    "book": "PHM",
+    "ver": 782,
+    "bible_ver": "RIPV",
+    "lang": "Ilokano"
+  },
+  {
+    "chapter_length": 1,
+    "book": "PHM",
+    "ver": 2198,
+    "bible_ver": "MBBSAM",
+    "lang": "Waray"
+  },
+  {
+    "chapter_length": 1,
+    "book": "PHM",
+    "ver": 1129,
+    "bible_ver": "CBKNT",
+    "lang": "Chavacano"
+  },
+  {
+    "chapter_length": 1,
+    "book": "PHM",
+    "ver": 2194,
+    "bible_ver": "MBBPAN83",
+    "lang": "Pangasinan"
+  },
+  {
+    "chapter_length": 1,
+    "book": "PHM",
+    "ver": 1315,
+    "bible_ver": "VTSP",
+    "lang": "Ivatan"
+  },
+  {
+    "chapter_length": 1,
+    "book": "PHM",
+    "ver": 2364,
+    "bible_ver": "SNT",
+    "lang": "Yami"
+  },
+  {
+    "chapter_length": 1,
+    "book": "PHM",
+    "ver": 1141,
+    "bible_ver": "PMPV",
+    "lang": "Kapampangan"
+  },
+  {
+    "chapter_length": 1,
+    "book": "PHM",
+    "ver": 890,
+    "bible_ver": "MBBBIK92",
+    "lang": "Bikolano"
+  },
+  {
+    "chapter_length": 1,
+    "book": "PHM",
+    "ver": 2191,
+    "bible_ver": "ABHIL82",
+    "lang": "Ilonggo"
+  },
+  {
+    "chapter_length": 1,
+    "book": "PHM",
+    "ver": 1319,
+    "bible_ver": "TSG",
+    "lang": "Tausug"
+  },
+  {
+    "chapter_length": 1,
+    "book": "PHM",
+    "ver": 1246,
+    "bible_ver": "MSK",
+    "lang": "Mansaka"
+  },
+  {
+    "chapter_length": 1,
+    "book": "PHM",
+    "ver": 2244,
+    "bible_ver": "BKR",
+    "lang": "Romblomanon"
+  },
+
+  {
+    "chapter_length": 22,
+    "book": "REV",
+    "ver": 2195,
+    "bible_ver": "ABTAG01",
+    "lang": "Tagalog"
+  },
+  {
+    "chapter_length": 22,
+    "book": "REV",
+    "ver": 2187,
+    "bible_ver": "ABCEB",
+    "lang": "Cebuano"
+  },
+  {
+    "chapter_length": 22,
+    "book": "REV",
+    "ver": 111,
+    "bible_ver": "NIV",
+    "lang": "English"
+  },
+  {
+    "chapter_length": 22,
+    "book": "REV",
+    "ver": 1637,
+    "bible_ver": "NVI",
+    "lang": "Spanish"
+  },
+  {
+    "chapter_length": 22,
+    "book": "REV",
+    "ver": 782,
+    "bible_ver": "RIPV",
+    "lang": "Ilokano"
+  },
+  {
+    "chapter_length": 22,
+    "book": "REV",
+    "ver": 2198,
+    "bible_ver": "MBBSAM",
+    "lang": "Waray"
+  },
+  {
+    "chapter_length": 22,
+    "book": "REV",
+    "ver": 1129,
+    "bible_ver": "CBKNT",
+    "lang": "Chavacano"
+  },
+  {
+    "chapter_length": 22,
+    "book": "REV",
+    "ver": 2194,
+    "bible_ver": "MBBPAN83",
+    "lang": "Pangasinan"
+  },
+  {
+    "chapter_length": 22,
+    "book": "REV",
+    "ver": 1315,
+    "bible_ver": "VTSP",
+    "lang": "Ivatan"
+  },
+  {
+    "chapter_length": 22,
+    "book": "REV",
+    "ver": 2364,
+    "bible_ver": "SNT",
+    "lang": "Yami"
+  },
+  {
+    "chapter_length": 22,
+    "book": "REV",
+    "ver": 1141,
+    "bible_ver": "PMPV",
+    "lang": "Kapampangan"
+  },
+  {
+    "chapter_length": 22,
+    "book": "REV",
+    "ver": 890,
+    "bible_ver": "MBBBIK92",
+    "lang": "Bikolano"
+  },
+  {
+    "chapter_length": 22,
+    "book": "REV",
+    "ver": 2191,
+    "bible_ver": "ABHIL82",
+    "lang": "Ilonggo"
+  },
+  {
+    "chapter_length": 22,
+    "book": "REV",
+    "ver": 1319,
+    "bible_ver": "TSG",
+    "lang": "Tausug"
+  },
+  {
+    "chapter_length": 22,
+    "book": "REV",
+    "ver": 1246,
+    "bible_ver": "MSK",
+    "lang": "Mansaka"
+  },
+  {
+    "chapter_length": 22,
+    "book": "REV",
+    "ver": 2244,
+    "bible_ver": "BKR",
+    "lang": "Romblomanon"
+  }
+]
