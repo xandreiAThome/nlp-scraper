@@ -45,6 +45,20 @@ SENTENCE_ONLY_RULE = [
 ]
 
 
+def load_book_names(file_path):
+    mapping = {}
+    with open(file_path, "r", encoding="utf-8") as f:
+        reader = csv.reader(f, delimiter="\t")
+        for row in reader:
+            if len(row) >= 2:
+                acronym, full_name = row[0], row[1]
+                mapping[acronym] = full_name
+    return mapping
+
+
+BOOK_MAPPING = load_book_names("book-names.tsv")
+
+
 def apply_rules(text: str, rules) -> str:
     for pattern_str, repl in rules:
         pattern = pcre2.compile(pattern_str, pcre2.MULTILINE)
@@ -68,7 +82,8 @@ def process_file(file, verses_path, sentences_path):
         print(f"Skipping file with unexpected name format: {filename} -> {name_parts}")
         return "N/A"
 
-    book, chapter, ver, lang = name_parts
+    book_acro, chapter, ver, lang = name_parts
+    book = BOOK_MAPPING.get(book_acro, book_acro)
 
     verse_file = (verses_path / lang).with_suffix(".tsv")
     sentence_file = (sentences_path / lang).with_suffix(".tsv")
