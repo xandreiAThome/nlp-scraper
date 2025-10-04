@@ -100,7 +100,6 @@ def process_file(file, verses_path, sentences_path):
         writer = csv.writer(f, delimiter="\t")
         if write_header_verse:
             writer.writerow(["Book", "Chapter", "Verse", "Text"])
-
         for row in verse_segment.splitlines():
             if row.startswith("Verse "):
                 verse_num, verse_text = row[6:].split(":", 1)
