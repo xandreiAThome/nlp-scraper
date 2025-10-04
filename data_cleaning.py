@@ -39,6 +39,11 @@ SENTENCE_RULES = [
     (r"^\s|(?<=“) ", ""),  # Clean-up of generated WHITESPACE
 ]
 
+SENTENCE_ONLY_RULE = [
+    (r" ((?-i)[^\.\!\?]+[\.\!\?]”?(?=\s+[A-Z]))", "$1\n"),  # Segment by Sentence
+    (r"^\s|(?<=“) ", ""),  # Clean-up of generated WHITESPACE
+]
+
 
 def apply_rules(text: str, rules) -> str:
     for pattern_str, repl in rules:
@@ -53,7 +58,7 @@ def process_file(file, verses_path, sentences_path):
 
     print("Processing: " + file.name)
     verse_segment = apply_rules(text, VERSE_RULES)
-    sentence_segment = apply_rules(text, SENTENCE_RULES)
+    # sentence_segment = apply_rules(text, SENTENCE_RULES)
 
     filename = os.path.basename(file)
     name_no_ext = filename.rsplit(".", 1)[0]
@@ -63,10 +68,7 @@ def process_file(file, verses_path, sentences_path):
         print(f"Skipping file with unexpected name format: {filename} -> {name_parts}")
         return "N/A"
 
-    book = name_parts[0]
-    chapter = name_parts[1]
-    ver = name_parts[2]
-    lang = name_parts[3]
+    book, chapter, ver, lang = name_parts
 
     verse_file = (verses_path / lang).with_suffix(".tsv")
     sentence_file = (sentences_path / lang).with_suffix(".tsv")
@@ -74,9 +76,11 @@ def process_file(file, verses_path, sentences_path):
     verse_file.parent.mkdir(parents=True, exist_ok=True)
     sentence_file.parent.mkdir(parents=True, exist_ok=True)
 
-
     # Only write header if file does not exist or is empty
     write_header_verse = not verse_file.exists() or verse_file.stat().st_size == 0
+    write_header_sentence = (
+        not sentence_file.exists() or sentence_file.stat().st_size == 0
+    )
     with verse_file.open("a", encoding="utf-8") as f:
         writer = csv.writer(f, delimiter="\t")
         if write_header_verse:
@@ -86,10 +90,23 @@ def process_file(file, verses_path, sentences_path):
             if row.startswith("Verse "):
                 verse_num, verse_text = row[6:].split(":", 1)
                 writer.writerow([book, chapter, verse_num, verse_text.strip()])
+                sentence_segment = apply_rules(verse_text.strip(), SENTENCE_ONLY_RULE)
+                with sentence_file.open("a", encoding="utf-8") as sf:
+                    writer_s = csv.writer(sf, delimiter="\t")
+                    if write_header_sentence:
+                        writer_s.writerow(
+                            ["Book", "Chapter", "Verse", "Sentence", "Text"]
+                        )
+                        write_header_sentence = (
+                            False  # Ensure header is written only once
+                        )
+                    for idx, sentence in enumerate(sentence_segment.splitlines()):
+                        writer_s.writerow(
+                            [book, chapter, verse_num, idx + 1, sentence.strip()]
+                        )
 
-    write_header_sentence = not sentence_file.exists() or sentence_file.stat().st_size == 0
-    with sentence_file.open("a", encoding="utf-8") as f:
-        f.write(sentence_segment)
+    # with sentence_file.open("a", encoding="utf-8") as f:
+    #     f.write(sentence_segment)
 
     return str(filename)
 
@@ -124,7 +141,8 @@ def segment_verses(input_folder, verses_folder, sentence_folder, workers=None):
 
     start = time.time()
 
-    if workers == 1:
+    # Made it 1 worker for now because of race conditions on writing to same file
+    if workers:
         for f in files:
             result = process_file(f, verses_path, sentences_path)
             print("Processed:", result)
