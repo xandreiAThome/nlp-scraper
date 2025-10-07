@@ -9,6 +9,7 @@ __pycache__/
 Original-Text/
 Sentences/
 Verses/
+Parallel_Corpus/
 
 # Distribution / packaging
 .Python

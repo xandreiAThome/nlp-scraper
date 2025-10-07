@@ -1,0 +1,4 @@
+pcre2
+pandas
+playwright
+python-dotenv
