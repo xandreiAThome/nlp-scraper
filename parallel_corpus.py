@@ -1,6 +1,157 @@
 import pandas as pd
 from pathlib import Path
 import os
+import re
+
+def parse_verse_range(verse_str):
+    """
+    Parse a verse string and return a set of individual verse numbers it covers.
+    Examples: "1" -> {1}, "1-4" -> {1,2,3,4}
+    """
+    verse_str = str(verse_str).strip()
+    
+    if '-' in verse_str:
+        # It's a range like "1-4"
+        try:
+            start, end = verse_str.split('-', 1)
+            start_num = int(start.strip())
+            end_num = int(end.strip())
+            return set(range(start_num, end_num + 1))
+        except ValueError:
+            # If parsing fails, treat as single verse
+            try:
+                return {int(verse_str)}
+            except ValueError:
+                return set()
+    else:
+        # Single verse number
+        try:
+            return {int(verse_str)}
+        except ValueError:
+            return set()
+
+def consolidate_verses(df):
+    """
+    For each unique (Book, Chapter, Verse) where Verse is a range,
+    find all individual verses that should be concatenated.
+    Returns a mapping: (Book, Chapter, verse_range) -> list of verse numbers to concatenate
+    """
+    verse_map = {}
+    
+    # Group by Book and Chapter
+    for (book, chapter), group in df.groupby(['Book', 'Chapter']):
+        verses_in_chapter = group['Verse'].unique()
+        
+        # Find verse ranges
+        for verse_str in verses_in_chapter:
+            verse_nums = parse_verse_range(verse_str)
+            if len(verse_nums) > 1:  # It's a range
+                verse_map[(book, chapter, verse_str)] = sorted(verse_nums)
+    
+    return verse_map
+
+def align_verses_for_merge(df1, df2):
+    """
+    Align two dataframes by handling verse ranges.
+    If df1 has "1-4" and df2 has individual verses 1,2,3,4,
+    concatenate df2's verses to create a "1-4" row.
+    """
+    # Find verse ranges in each dataframe
+    ranges1 = consolidate_verses(df1)
+    ranges2 = consolidate_verses(df2)
+    
+    df1_aligned = df1.copy()
+    df2_aligned = df2.copy()
+    
+    # Process df1's ranges: concatenate matching verses from df2
+    for (book, chapter, verse_range), verse_nums in ranges1.items():
+        text_col = df2_aligned.columns[-1]  
+        texts = []
+        verses_to_remove = []
+        
+        # Check each verse in the range individually
+        for v in verse_nums:
+            matching_verse = df2_aligned[
+                (df2_aligned['Book'] == book) & 
+                (df2_aligned['Chapter'] == chapter) & 
+                (df2_aligned['Verse'] == str(v))
+            ]
+            
+            if len(matching_verse) > 0:
+                text = str(matching_verse[text_col].iloc[0])
+                # Handle empty, NaN, or missing content
+                if text and text.lower() not in ['nan', 'none', '']:
+                    texts.append(text.strip())
+                else:
+                    texts.append('<missing verse>')
+                verses_to_remove.append(str(v))
+            else:
+                texts.append('<missing verse>')
+        
+        if verses_to_remove:
+            concatenated_text = ' '.join(texts)
+            
+            # Remove individual verse rows from df2
+            df2_aligned = df2_aligned[~(
+                (df2_aligned['Book'] == book) & 
+                (df2_aligned['Chapter'] == chapter) & 
+                (df2_aligned['Verse'].astype(str).isin(verses_to_remove))
+            )]
+            
+            # Add the concatenated row
+            new_row = {
+                'Book': book,
+                'Chapter': chapter,
+                'Verse': verse_range,
+                text_col: concatenated_text
+            }
+            df2_aligned = pd.concat([df2_aligned, pd.DataFrame([new_row])], ignore_index=True)
+    
+    # Process df2's ranges: concatenate matching verses from df1
+    for (book, chapter, verse_range), verse_nums in ranges2.items():
+        text_col = df1_aligned.columns[-1]  # Last column is the text
+        texts = []
+        verses_to_remove = []
+        
+        # Check each verse in the range individually
+        for v in verse_nums:
+            matching_verse = df1_aligned[
+                (df1_aligned['Book'] == book) & 
+                (df1_aligned['Chapter'] == chapter) & 
+                (df1_aligned['Verse'] == str(v))
+            ]
+            
+            if len(matching_verse) > 0:
+                text = str(matching_verse[text_col].iloc[0])
+                # Handle empty, NaN, or missing content
+                if text and text.lower() not in ['nan', 'none', '']:
+                    texts.append(text.strip())
+                else:
+                    texts.append('<missing verse>')
+                verses_to_remove.append(str(v))
+            else:
+                texts.append('<missing verse>')
+        
+        if verses_to_remove:
+            concatenated_text = ' '.join(texts)
+            
+            # Remove individual verse rows from df1
+            df1_aligned = df1_aligned[~(
+                (df1_aligned['Book'] == book) & 
+                (df1_aligned['Chapter'] == chapter) & 
+                (df1_aligned['Verse'].astype(str).isin(verses_to_remove))
+            )]
+            
+            # Add the concatenated row
+            new_row = {
+                'Book': book,
+                'Chapter': chapter,
+                'Verse': verse_range,
+                text_col: concatenated_text
+            }
+            df1_aligned = pd.concat([df1_aligned, pd.DataFrame([new_row])], ignore_index=True)
+    
+    return df1_aligned, df2_aligned
 
 def create_parallel_corpus():
     # Define the language pairs to create
@@ -56,7 +207,10 @@ def create_parallel_corpus():
             
             print(f"Using column '{verse_col1}' for {lang1} and '{verse_col2}' for {lang2}")
             
-            # Merge
+            # Align verses (handle merged verses by concatenating individual ones)
+            print(f"Aligning verses between {lang1} and {lang2}...")
+            df1, df2 = align_verses_for_merge(df1, df2 )
+            
             merged_df = pd.merge(
                 df1, 
                 df2, 
@@ -85,10 +239,10 @@ def create_parallel_corpus():
             result_df = result_df.sort_values(['Book', 'Chapter_num', 'Verse_num']).reset_index(drop=True)
             result_df = result_df.drop(['Chapter_num', 'Verse_num'], axis=1)
             
-            # Save to Excel
-            excel_filename = f"{output_dir}/{lang1}_{lang2}_Parallel.xlsx"
-            result_df.to_excel(excel_filename, index=False)
-            print(f"Saved: {excel_filename}")
+            # Save to TSV
+            out_filename = f"{output_dir}/{lang1}_{lang2}_Parallel.tsv"
+            result_df.to_csv(out_filename, sep='\t', index=False)
+            print(f"Saved: {out_filename}")
             
         else:
             missing_langs = []

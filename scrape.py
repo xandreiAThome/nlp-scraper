@@ -26,6 +26,8 @@ with sync_playwright() as pw:
         errors = []
         saved_count = 0
         print(f"Processing batch {y}...")
+        # Segment to batches scraping in order to avoid rerunning if
+        # one batch fails or is interrupted.
         with open(f"scrape-info/{y}/data.json", "r", encoding="utf-8") as f:
             data = json.load(f)
 
